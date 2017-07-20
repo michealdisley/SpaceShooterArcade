@@ -15,7 +15,14 @@ public class Done_PlayerController : MonoBehaviour
 
 	public GameObject shot;
 	public Transform shotSpawn;
-	public float fireRate;
+    public Transform shotSpawn1;
+    public Transform shotSpawn2;
+    public Transform shotSpawn3;
+    public Transform shotSpawn4;
+    public Transform shotSpawn5;
+    public Transform shotSpawn6;
+    public Transform shotSpawn7;
+    public float fireRate;
 	 
 	private float nextFire;
 	
@@ -25,7 +32,40 @@ public class Done_PlayerController : MonoBehaviour
 		{
 			nextFire = Time.time + fireRate;
 			Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
-			GetComponent<AudioSource>().Play ();
+            if(shotSpawn1)
+            {
+                Instantiate(shot, shotSpawn1.position, shotSpawn1.rotation);
+            }
+            if (shotSpawn1)
+            {
+                Instantiate(shot, shotSpawn1.position, shotSpawn1.rotation);
+            }
+            if (shotSpawn2)
+            {
+                Instantiate(shot, shotSpawn2.position, shotSpawn2.rotation);
+            }
+            if (shotSpawn3)
+            {
+                Instantiate(shot, shotSpawn3.position, shotSpawn3.rotation);
+            }
+            if (shotSpawn4)
+            {
+                Instantiate(shot, shotSpawn4.position, shotSpawn4.rotation);
+            }
+            if (shotSpawn5)
+            {
+                Instantiate(shot, shotSpawn5.position, shotSpawn5.rotation);
+            }
+            if (shotSpawn6)
+            {
+                Instantiate(shot, shotSpawn6.position, shotSpawn6.rotation);
+            }
+            if (shotSpawn7)
+            {
+                Instantiate(shot, shotSpawn7.position, shotSpawn7.rotation);
+            }
+            else { return; }
+            GetComponent<AudioSource>().Play ();
 		}
 	}
 
