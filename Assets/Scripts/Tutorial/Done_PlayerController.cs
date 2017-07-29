@@ -9,64 +9,83 @@ public class Done_Boundary
 
 public class Done_PlayerController : MonoBehaviour
 {
+    weaponSwap WS;
+
+    // Ints
+    public int numWeapons;
+
 	public float speed;
 	public float tilt;
 	public Done_Boundary boundary;
 
-	public GameObject shot;
-	public Transform shotSpawn;
-    public Transform shotSpawn1;
-    public Transform shotSpawn2;
-    public Transform shotSpawn3;
-    public Transform shotSpawn4;
-    public Transform shotSpawn5;
-    public Transform shotSpawn6;
-    public Transform shotSpawn7;
+    public GameObject shot;
+
+    public GameObject[] firepoints;
+    public GameObject weapons;
     public float fireRate;
 	 
 	private float nextFire;
-	
-	void Update ()
-	{
-		if (Input.GetButton("Fire1") && Time.time > nextFire) 
-		{
-			nextFire = Time.time + fireRate;
-			Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
-            if(shotSpawn1)
+
+    void Start()
+    {
+        WS = GetComponent<weaponSwap>();
+        weapons = shot;
+
+        firepoints = new GameObject[numWeapons];
+        for (int i = 0; i < numWeapons; i++)
+        {
+            if (weapons == null)
+                return;
+            else
             {
-                Instantiate(shot, shotSpawn1.position, shotSpawn1.rotation);
+                GameObject go = Instantiate(weapons, new Vector3((float)i, 1, 0), Quaternion.identity) as GameObject;
+                go.transform.localScale = Vector3.one;
+                firepoints[i] = go;
             }
-            if (shotSpawn1)
-            {
-                Instantiate(shot, shotSpawn1.position, shotSpawn1.rotation);
-            }
-            if (shotSpawn2)
-            {
-                Instantiate(shot, shotSpawn2.position, shotSpawn2.rotation);
-            }
-            if (shotSpawn3)
-            {
-                Instantiate(shot, shotSpawn3.position, shotSpawn3.rotation);
-            }
-            if (shotSpawn4)
-            {
-                Instantiate(shot, shotSpawn4.position, shotSpawn4.rotation);
-            }
-            if (shotSpawn5)
-            {
-                Instantiate(shot, shotSpawn5.position, shotSpawn5.rotation);
-            }
-            if (shotSpawn6)
-            {
-                Instantiate(shot, shotSpawn6.position, shotSpawn6.rotation);
-            }
-            if (shotSpawn7)
-            {
-                Instantiate(shot, shotSpawn7.position, shotSpawn7.rotation);
-            }
-            else { return; }
-            GetComponent<AudioSource>().Play ();
-		}
+        }
+   
+
+ //   void Update ()
+	//{
+		//if (Input.GetButton("Fire1") && Time.time > nextFire) 
+		//{
+		//	nextFire = Time.time + fireRate;
+		//	Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+  //          if(firepoints[weapons] == 1)
+  //          {
+  //              Instantiate(shot, shotSpawn1.position, shotSpawn1.rotation);
+  //          }
+  //          if (shotSpawn1)
+  //          {
+  //              Instantiate(WS.shot, shotSpawn1.position, shotSpawn1.rotation);
+  //          }
+  //          if (secoundWeapon)
+  //          {
+  //              Instantiate(WS.shot, secoundWeapon.position, secoundWeapon.rotation);
+  //          }
+  //          if (secoundWeapon)
+  //          {
+  //              Instantiate(WS.shot, secoundWeapon.position, secoundWeapon.rotation);
+  //          }
+  //          if (secoundWeapon)
+  //          {
+  //              Instantiate(WS.shot, secoundWeapon.position, secoundWeapon.rotation);
+  //          }
+  //          if (secoundWeapon)
+  //          {
+  //              Instantiate(WS.shot, secoundWeapon.position, secoundWeapon.rotation);
+  //          }
+  //          if (secoundWeapon)
+  //          {
+  //              Instantiate(WS.shot, secoundWeapon.position, secoundWeapon.rotation);
+  //          }
+  //          if (secoundWeapon)
+  //          {
+  //              Instantiate(WS.shot, secoundWeapon.position, secoundWeapon.rotation);
+  //          }
+  //          else { return; }
+  //          GetComponent<AudioSource>().Play ();
+		//}
 	}
 
 	void FixedUpdate ()
@@ -86,4 +105,5 @@ public class Done_PlayerController : MonoBehaviour
 		
 		GetComponent<Rigidbody>().rotation = Quaternion.Euler (0.0f, 0.0f, GetComponent<Rigidbody>().velocity.x * -tilt);
 	}
+
 }

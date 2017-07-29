@@ -25,10 +25,14 @@ public class Done_DestroyByContact : MonoBehaviour
 	{
 		if (other.tag == "Boundary" || other.tag == "Enemy")
 		{
-			return;
-		}
+            if (other.transform.parent != null)
+            {
+                Destroy(gameObject);
+            }
+            else return;
+        }
 
-		if (explosion != null)
+        if (explosion != null)
 		{
 			Instantiate(explosion, transform.position, transform.rotation);
 		}
@@ -39,6 +43,7 @@ public class Done_DestroyByContact : MonoBehaviour
 			gameController.GameOver();
 		}
 		
+
 		gameController.AddScore(scoreValue);
 		Destroy (other.gameObject);
 		Destroy (gameObject);
