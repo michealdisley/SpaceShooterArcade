@@ -4,16 +4,16 @@ using UnityEngine;
 public class BuildScript
 {
 
-    static string[] devScenes = new string[] {  "Assets/Scenes/DevGame.unity" };
-	static string[] relScenes = {  };
+    static string[] devScenes = new string[] {  "Assets/_Scenes/DevBuild.unity" };
+	static string[] relScenes = { "Assets / _Scenes / Main.unity" };
 
-    [MenuItem("Tools/Builds/OSX/Development")]
+    [MenuItem("Tools/Builds/IOS/Development")]
     private static void BuildDevOSX()
     {
         BuildOSX(true);
     }
 
-    [MenuItem("Tools/Builds/OSX/Release")]
+    [MenuItem("Tools/Builds/IOS/Release")]
     private static void BuildRelOSX()
     {
         BuildOSX(false);
@@ -31,25 +31,30 @@ public class BuildScript
 		BuildAndroid(false);
 	}
 
-    private static void BuildOSX(bool isDev) {
-		Debug.Log("Building OSX" + (isDev ? " Dev" : "") );
-		string buildPath =  GetBuildPath("OSX");
+    private static void BuildOSX(bool isDev)
+    {
+		Debug.Log("Building iOS" + (isDev ? " DevPack" : "") );
+		string buildPath =  GetBuildPath("iOS");
 
 		if(isDev)
 			buildPath += 
 
-		BuildPipeline.BuildPlayer( isDev ? devScenes : relScenes, buildPath, BuildTarget.StandaloneOSXUniversal, isDev ? BuildOptions.Development : BuildOptions.None);
+		BuildPipeline.BuildPlayer( isDev ? devScenes : relScenes, buildPath, BuildTarget.iOS, isDev ? BuildOptions.Development : BuildOptions.None);
 	}
 
     private static void BuildAndroid(bool isDev)
     {
-        Debug.Log("Building Android" + (isDev ? " Dev" : ""));
+        Debug.Log("Building Android" + (isDev ? " DevPack" : ""));
         string buildPath = GetBuildPath("Android");
 
         if (isDev)
-            buildPath +=
-
-        BuildPipeline.BuildPlayer(isDev ? devScenes : relScenes, buildPath, BuildTarget.Android, isDev ? BuildOptions.Development : BuildOptions.None);
+        {
+            buildPath += BuildPipeline.BuildPlayer(isDev ? devScenes : relScenes, buildPath, BuildTarget.Android, isDev ? BuildOptions.Development : BuildOptions.None);
+        }
+        else
+        {
+            BuildPipeline.BuildPlayer(relScenes, buildPath, BuildTarget.Android, isDev ? BuildOptions.Development : BuildOptions.None);
+        }
     }
 
     private static string GetBuildPath(string subDirectory)
