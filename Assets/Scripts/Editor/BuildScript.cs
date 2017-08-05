@@ -7,13 +7,13 @@ public class BuildScript
     static string[] devScenes = new string[] {  "Assets/_Scenes/DevBuild.unity" };
 	static string[] relScenes = { "Assets / _Scenes / Main.unity" };
 
-    [MenuItem("Tools/Builds/IOS/Development")]
+    [MenuItem("Tools/Builds/OSX/Development")]
     private static void BuildDevOSX()
     {
         BuildOSX(true);
     }
 
-    [MenuItem("Tools/Builds/IOS/Release")]
+    [MenuItem("Tools/Builds/OSX/Release")]
     private static void BuildRelOSX()
     {
         BuildOSX(false);
@@ -31,16 +31,28 @@ public class BuildScript
 		BuildAndroid(false);
 	}
 
+    [MenuItem("Tools/Builds/Windows/Development")]
+    private static void BuildDevWindows()
+    {
+        BuildAndroid(true);
+    }
+
+    [MenuItem("Tools/Builds/Windows/Release")]
+    private static void BuildRelWindows()
+    {
+        BuildAndroid(false);
+    }
+
     private static void BuildOSX(bool isDev)
     {
-		Debug.Log("Building iOS" + (isDev ? " DevPack" : "") );
-		string buildPath =  GetBuildPath("iOS");
+        Debug.Log("Building OSX" + (isDev ? " DevPack" : ""));
+        string buildPath = GetBuildPath("iOS");
 
-		if(isDev)
-			buildPath += 
+        if (isDev)
+            buildPath +=
 
-		BuildPipeline.BuildPlayer( isDev ? devScenes : relScenes, buildPath, BuildTarget.iOS, isDev ? BuildOptions.Development : BuildOptions.None);
-	}
+        BuildPipeline.BuildPlayer(isDev ? devScenes : relScenes, buildPath, BuildTarget.StandaloneOSXUniversal, isDev ? BuildOptions.Development : BuildOptions.None);
+    }
 
     private static void BuildAndroid(bool isDev)
     {
@@ -53,8 +65,19 @@ public class BuildScript
         }
         else
         {
-            BuildPipeline.BuildPlayer(relScenes, buildPath, BuildTarget.Android, isDev ? BuildOptions.Development : BuildOptions.None);
+            buildPath += BuildPipeline.BuildPlayer(relScenes, buildPath, BuildTarget.Android, isDev ? BuildOptions.Development : BuildOptions.None);
         }
+    }
+
+    private static void BuildWindows(bool isDev)
+    {
+        Debug.Log("Building Windows" + (isDev ? " DevPack" : ""));
+        string buildPath = GetBuildPath("Windows");
+
+        if (isDev)
+            buildPath +=
+
+        BuildPipeline.BuildPlayer(isDev ? devScenes : relScenes, buildPath, BuildTarget.StandaloneWindows64, isDev ? BuildOptions.Development : BuildOptions.None);
     }
 
     private static string GetBuildPath(string subDirectory)

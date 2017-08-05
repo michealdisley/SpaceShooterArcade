@@ -10,7 +10,7 @@ public class Boundary
 
 public class PlayerController : MonoBehaviour
 {
-    GameController GC;
+    LevelController LC;
 
     // Ints
 

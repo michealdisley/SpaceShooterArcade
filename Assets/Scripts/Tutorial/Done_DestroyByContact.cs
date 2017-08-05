@@ -10,16 +10,16 @@ public class Done_DestroyByContact : MonoBehaviour
     public GameObject explosion;
 	public GameObject playerExplosion;
 
-	private GameController gameController;
+	private LevelController LC;
 
 	void Start ()
 	{
-		GameObject gameControllerObject = GameObject.FindGameObjectWithTag ("GameController");
-		if (gameControllerObject != null)
+		GameObject LevelControllerObject = GameObject.FindGameObjectWithTag ("GameController");
+		if (LevelControllerObject != null)
 		{
-			gameController = gameControllerObject.GetComponent <GameController>();
+			LC = LevelControllerObject.GetComponent <LevelController>();
 		}
-		if (gameController == null)
+		if (LC == null)
 		{
 			Debug.Log ("Cannot find 'GameController' script");
 		}
@@ -44,11 +44,11 @@ public class Done_DestroyByContact : MonoBehaviour
 		if (other.tag == "Player")
 		{
 			Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
-			gameController.GameOver();
+			LC.GameOver();
 		}
 		
 
-		gameController.AddScore(scoreValue);
+		LC.AddScore(scoreValue);
 		Destroy (other.gameObject);
 		Destroy (gameObject);
 	}

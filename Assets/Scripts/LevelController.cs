@@ -2,7 +2,7 @@
 using UnityEngine.SceneManagement;
 using System.Collections;
 
-public class GameController : MonoBehaviour
+public class LevelController : MonoBehaviour
 {
 
     [Header("Hazards")]
