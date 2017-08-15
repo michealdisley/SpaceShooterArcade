@@ -206,7 +206,7 @@ GameObject:
   - component: {fileID: 64125891813450278}
   m_Layer: 0
   m_Name: astra Shuttle
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -292,7 +292,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1677034736987682}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 2, z: -0}
+  m_LocalPosition: {x: 0, y: 2.25, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4848609648024140}
@@ -344,8 +344,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1817718068209574}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0.14}
-  m_LocalScale: {x: 0.005, y: 0.015, z: 0.005000008}
+  m_LocalPosition: {x: -0, y: 0, z: 0.15}
+  m_LocalScale: {x: 0.005, y: 0.015, z: 0.005}
   m_Children:
   - {fileID: 4634027030044406}
   m_Father: {fileID: 4925426595432468}
@@ -644,9 +644,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.05
-  m_Height: 0.34
+  m_Height: 0.31124017
   m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: 0.014380134}
 --- !u!198 &198155007571454146
 ParticleSystem:
   m_ObjectHideFlags: 1

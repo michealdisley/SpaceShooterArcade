@@ -11,7 +11,7 @@ public class DestroyByContact : MonoBehaviour
     public GameObject explosion;
     public GameObject playerExplosion;
 
-    private LevelController LC;
+    public LevelController LC;
 
     void Start()
     {
@@ -28,13 +28,25 @@ public class DestroyByContact : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Boundary" || other.tag == "Enemy")
+        if (other.tag == "Boundary") // || other.tag == "Enemy")
         {
-            if (other.transform.parent != null)
-            {
-                Destroy(gameObject);
-            }
-            else return;
+            Destroy(gameObject);
+        }
+        else if (tag == "Projectile" && other.tag == "Enemy")
+        {
+
+            LC.AddScore(other.gameObject.GetComponent<DestroyByContact>().scoreValue);
+            Destroy(other.gameObject);
+        }
+        else if (tag == "Enemy" && other.tag == "Player")
+        {
+            Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
+            Destroy(other.gameObject);
+            LC.GameOver();
+        }
+        else if (tag == "Enemy" && other.tag == "Enemy")
+        {
+            Destroy(this.gameObject);
         }
 
         if (explosion != null)
@@ -42,15 +54,7 @@ public class DestroyByContact : MonoBehaviour
             Instantiate(explosion, transform.position, transform.rotation);
         }
 
-        if (other.tag == "Player")
-        {
-            Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
-            LC.GameOver();
-        }
-
-
-        LC.AddScore(scoreValue);
-        Destroy(other.gameObject);
-        Destroy(gameObject);
+        // LC.AddScore(scoreValue);
+        // Destroy(other.transform.parent.gameObject);
     }
 }
