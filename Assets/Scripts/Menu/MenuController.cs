@@ -14,7 +14,9 @@ public class MenuController : MonoBehaviour
     private string pauseMenuScene = "Pause Menu";
     private string levelCompleteScene = "Level Complete";
     private string gameOverScene = "Game Over";
-    // private string hudScene = "Hud";
+    private string hudScene = "Hud";
+
+    private string levelOne = "DevBuild";
     
     // Used to incement levels
     // public string nextLevel = "Level 2";
@@ -111,4 +113,8 @@ public class MenuController : MonoBehaviour
         
     }
 
+    public void LoadLevelOne()
+    {
+        SceneManager.LoadScene(levelOne, LoadSceneMode.Single);
+    }
 }

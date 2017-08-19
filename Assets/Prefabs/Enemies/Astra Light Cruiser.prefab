@@ -202,6 +202,8 @@ GameObject:
   - component: {fileID: 114160561119860974}
   - component: {fileID: 114579127585742962}
   - component: {fileID: 114193777987088338}
+  - component: {fileID: 136443305636395800}
+  - component: {fileID: 136729228933745242}
   m_Layer: 0
   m_Name: Astra Light Cruiser
   m_TagString: Enemy
@@ -867,6 +869,10 @@ MonoBehaviour:
   scoreValue: 100
   explosion: {fileID: 100012, guid: 160925a6fe2664f2a978566b819f0af0, type: 2}
   playerExplosion: {fileID: 100008, guid: 3455fe69f7ddc4604b95bf9b0a1e88d7, type: 2}
+  health: {fileID: 0}
+  missile: {fileID: 0}
+  arc: {fileID: 0}
+  shield: {fileID: 0}
 --- !u!114 &114193777987088338
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -901,6 +907,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: -5
+--- !u!136 &136443305636395800
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1459575203635522}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.15
+  m_Height: 0.8
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &136729228933745242
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1459575203635522}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.18
+  m_Height: 0.8
+  m_Direction: 0
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!198 &198035254109519114
 ParticleSystem:
   m_ObjectHideFlags: 1

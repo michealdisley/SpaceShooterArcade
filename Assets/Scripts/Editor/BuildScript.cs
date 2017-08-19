@@ -4,8 +4,9 @@ using UnityEngine;
 public class BuildScript
 {
 
-    static string[] devScenes = new string[] {  "Assets/_Scenes/DevBuild.unity" };
-	static string[] relScenes = { "Assets / _Scenes / Main.unity" };
+    static string[] devScenes = new string[] { "C:/Users/easyhome/Documents/SpaceShooterArcade/Assets/_Scenes/DevBuild.unity" };
+	// static string[] relScenes = { "Assets / _Scenes / Main.unity" };
+    static string[] relScenes = { "C:/Users/easyhome/Documents/SpaceShooterArcade/Build" };
 
     [MenuItem("Tools/Builds/OSX/Development")]
     private static void BuildDevOSX()

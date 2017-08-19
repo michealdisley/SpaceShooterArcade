@@ -275,6 +275,19 @@ Prefab:
       propertyPath: ArcBurst
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1335113700142882, guid: fbebbb9b98b46bd4c9416a869632062f, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628754963575130, guid: fbebbb9b98b46bd4c9416a869632062f, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114526960667687762, guid: fbebbb9b98b46bd4c9416a869632062f,
+        type: 2}
+      propertyPath: bolt
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fbebbb9b98b46bd4c9416a869632062f, type: 2}
   m_IsPrefabParent: 0

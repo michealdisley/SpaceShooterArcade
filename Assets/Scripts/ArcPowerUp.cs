@@ -27,9 +27,11 @@ public class ArcPowerUp : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        else if(other.tag == "Player") // Applys Power Up Effect.
+        else if (other.tag == "Player") // Applys Power Up Effect.
         {
             PC.arcBurst = true;
+            Destroy(gameObject);
         }
+        else return;
     }
 }

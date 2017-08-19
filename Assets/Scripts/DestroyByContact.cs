@@ -47,10 +47,14 @@ public class DestroyByContact : MonoBehaviour
         {
             if (tag == "Shield" || other.tag == "Shield")
             {
+
+                print("Shield hit boundary");
                 return;
             }
             else
             {
+
+                print("boundary was hit.");
                 Destroy(gameObject);
             }
         }
@@ -63,6 +67,9 @@ public class DestroyByContact : MonoBehaviour
 
             LC.AddScore(other.gameObject.GetComponent<DestroyByContact>().scoreValue);
             Destroy(other.gameObject);
+            Destroy(this.gameObject);
+            Instantiate(explosion, transform.position, transform.rotation);
+
             if (Random.Range(0, 10) == healthPowerup)
             {
                 Instantiate(health, other.transform.position, other.transform.rotation);

@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     public Boundary boundary;
 
     [Header("Weapon's")]
+    public bool bolt;
     public bool missile;
     public bool arcBurst;
     public bool shield;
@@ -79,14 +80,13 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        Shoot();
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (bolt == true)
         {
             BoltWeapon();
-            Debug.Log("E pushed!");
+            Debug.Log("Bolts Activated");
         }
-        if (missile == true)
+        else if (missile == true)
         {
             MissileWeapon();
             Debug.Log("Missiles Activated");
@@ -101,6 +101,8 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        Shoot();
+
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
@@ -238,7 +240,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator Shield()
     {
         shieldOn.SetActive(true);
-        yield return new WaitForSeconds(20f);
+        yield return new WaitForSeconds(5f);
         shieldOn.SetActive(false);
         shield = false;
     }
