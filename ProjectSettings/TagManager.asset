@@ -8,6 +8,7 @@ TagManager:
   - Obsticale
   - Boundary
   - Projectile
+  - Shield
   layers:
   - Default
   - TransparentFX

@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 54168216607552850}
   - component: {fileID: 136963199811191168}
   - component: {fileID: 114387596530688692}
+  - component: {fileID: 114219230690271746}
   m_Layer: 0
   m_Name: Missile
-  m_TagString: Player
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -158,6 +159,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &114219230690271746
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 152490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ae60a8d235bd174ea601bbb01fa017b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreValue: 2000
+  explosion: {fileID: 100012, guid: 160925a6fe2664f2a978566b819f0af0, type: 2}
+  playerExplosion: {fileID: 0}
+  health: {fileID: 0}
+  missile: {fileID: 0}
+  arc: {fileID: 0}
+  shield: {fileID: 0}
 --- !u!114 &114387596530688692
 MonoBehaviour:
   m_ObjectHideFlags: 1
