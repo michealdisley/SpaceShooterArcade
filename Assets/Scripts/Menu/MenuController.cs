@@ -14,7 +14,7 @@ public class MenuController : MonoBehaviour
     private string pauseMenuScene = "Pause Menu";
     private string levelCompleteScene = "Level Complete";
     private string gameOverScene = "Game Over";
-    private string hudScene = "Hud";
+    // private string hudScene = "Hud";
 
     private string levelOne = "DevBuild";
     
