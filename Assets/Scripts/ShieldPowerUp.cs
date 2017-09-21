@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ArcPowerUp : MonoBehaviour
+public class ShieldPowerUp : MonoBehaviour
 {
-
     private PlayerController PC;
 
-	void Start ()
+    void Start()
     {
         GameObject PlayerControllerObject = GameObject.FindGameObjectWithTag("Player");
         if (PlayerControllerObject != null)
@@ -26,9 +25,12 @@ public class ArcPowerUp : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        else if (other.tag == "Player") // Applys Power Up Effect.
+        else if (other.tag == "Player") // Applys Shields Effect.
         {
-            PC.arcBurst = true;
+            // PC.shieldActive = true;
+            PC.shield += 10;
+            if (PC.shield >= PC.maxShield)
+                PC.shield = PC.maxShield;
             Destroy(gameObject);
         }
         else return;

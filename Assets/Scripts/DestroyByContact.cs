@@ -26,6 +26,20 @@ public class DestroyByContact : MonoBehaviour
 
     private LevelController LC;
 
+    private void Awake()
+    {
+        GameObject LevelControllerObject = GameObject.FindGameObjectWithTag("GameController");
+        if (LevelControllerObject != null)
+        {
+            LC = LevelControllerObject.GetComponent<LevelController>();
+        }
+        if (LC == null)
+        {
+            Debug.Log("Cannot find 'GameController' script");
+        }
+
+    }
+
     void Start()
     {
         GameObject LevelControllerObject = GameObject.FindGameObjectWithTag("GameController");
@@ -72,19 +86,23 @@ public class DestroyByContact : MonoBehaviour
 
             if (Random.Range(0, 10) == healthPowerup)
             {
-                Instantiate(health, other.transform.position, other.transform.rotation);
+                // Instantiate(Resources.Load("Health Power-up"), other.transform.position, other.transform.rotation);
+                Debug.Log("Health power up created.");
             }
             else if (Random.Range(0, 10) == missilePowerup)
             {
-                Instantiate(missile, other.transform.position, other.transform.rotation);
+                // Instantiate(Resources.Load("Missile Power-up"), other.transform.position, other.transform.rotation);
+                Debug.Log("Missile power up created.");
             }
             else if (Random.Range(0, 10) == arcPowerup)
             {
-                Instantiate(arc, other.transform.position, other.transform.rotation);
+                Instantiate(Resources.Load("Arc Power-up"), other.transform.position, other.transform.rotation);
+                Debug.Log("Arc power up created.");
             }
             else if (Random.Range(0, 10) == shieldPowerup)
             {
-                Instantiate(shield, other.transform.position, other.transform.rotation);
+                // Instantiate(Resources.Load("Shield Power-up") other.transform.position, other.transform.rotation);
+                Debug.Log("Shield power up created.");
             }
             else
                 return;

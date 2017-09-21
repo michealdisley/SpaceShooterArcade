@@ -739,9 +739,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dec3ab1c91c5e7748befb98a6667d6d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 0
+  shield: 0
+  maxHealth: 100
+  maxShield: 50
   speed: 8
   fireRate: 0.5
   tilt: 0
+  healthPowerUp: 0
   boundary:
     xMin: -6
     xMax: 6
@@ -750,7 +755,7 @@ MonoBehaviour:
   bolt: 0
   missile: 0
   arcBurst: 0
-  shield: 0
+  shieldActive: 0
   Bolts: {fileID: 100000, guid: f4ec271e525e14ca9927a07e6a2e153d, type: 2}
   boltSound: {fileID: 8300000, guid: bf75b984df8a84987bcf3a8bf6e2862d, type: 3}
   Missiles: {fileID: 152490, guid: e3212aa3cff9c9745bd1a8f4def6ad1c, type: 2}
